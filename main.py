@@ -5,7 +5,8 @@ if __name__ == "__main__":
     # camera index 2 (may need to change)
     cap = feed.capture_start(2)
     while True:
-        feed.capture_feed_loop(cap)
+        frame = feed.capture_get_feed(cap)
+        feed.capture_show_feed(frame)
         # Break the loop if the user presses the 'q' key
         if feed.capture_quit_request():
             break

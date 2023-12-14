@@ -9,13 +9,15 @@ def capture_start(camera):
     else:
         return cap
 
-def capture_feed_loop(camera):
+def capture_get_feed(camera):
     # Read a frame from the camera
     ret, frame = camera.read()
     # If the frame was not read successfully, break the loop
     if not ret:
         print("Error: Could not read frame.")
-    # Display the frame
+    return frame
+
+def capture_show_feed(frame):
     cv2.imshow("Webcam Feed", frame)
 
 def capture_quit_request():
