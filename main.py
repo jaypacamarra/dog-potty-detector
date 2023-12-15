@@ -2,9 +2,12 @@ import cv2
 from camera import feed
 
 if __name__ == "__main__":
+    # camera index 0 - internal camera
+    # camera index 2 - external camera (may need to change)
+    camera_index = 0
+
     # open camera
-    # camera index 2 (may need to change)
-    cap = feed.capture_start(2)
+    cap = feed.capture_start(camera_index)
 
     # Load the pre-trained Haarcascade for dog detection
     dog_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
