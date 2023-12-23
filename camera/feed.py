@@ -1,6 +1,6 @@
 import cv2
 
-def capture_start(camera):
+def start(camera):
     cap = cv2.VideoCapture(camera)
     # Check if the camera opened successfully
     if not cap.isOpened():
@@ -9,7 +9,7 @@ def capture_start(camera):
     else:
         return cap
 
-def capture_get_feed(camera):
+def get(camera):
     # Read a frame from the camera
     ret, frame = camera.read()
     # If the frame was not read successfully, break the loop
@@ -17,12 +17,14 @@ def capture_get_feed(camera):
         print("Error: Could not read frame.")
     return frame
 
-def capture_show_feed(frame):
-    cv2.imshow("Webcam Feed", frame)
+def show(frame, text=""):
+    if text != "":
+        cv2.putText(frame, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.imshow('Feed', frame)
 
-def capture_quit_request():
+def is_quit_key_pressed():
     return cv2.waitKey(1) & 0xFF == ord('q')
 
-def capture_exit(camera):
+def exit(camera):
     camera.release()
     cv2.destroyAllWindows()
