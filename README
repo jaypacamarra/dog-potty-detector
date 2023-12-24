@@ -1,4 +1,6 @@
 # Requirements
 
-```bash
+``` bash
 pip install tensorflow opencv-python numpy
+```
+
