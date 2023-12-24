@@ -1,7 +1,6 @@
 # Requirements
 
-```C
+```
 pip install tensorflow opencv-python numpy
 
 ```
-
